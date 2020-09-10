@@ -14,7 +14,18 @@ const server = http.createServer((req , res) => {   // this will be called when 
     }
     //process.exit();
     if(url === '/message' && method === 'POST'){
-        fs.writeFileSync('message.txt','Dummy');
+        
+        const body = []; // beacause it will read the request body 
+        req.on('data',(chunk) => {
+            body.push(chunk);
+        }); // fired when a new chunk is ready to be reaad in stream
+        req.on('end', () =>{
+            const parsedBody = Buffer.concat(body).toString();
+            const message = parsedBody.split('=')[1];
+            fs.writeFileSync('message.txt',message);
+        });
+        
+        
         res.statusCode = 302;
         res.setHeader('Location','/');
         return res.end();
