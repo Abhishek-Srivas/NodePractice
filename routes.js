@@ -1,3 +1,6 @@
+/*
+commented out because now trying to use node js :-const routes = require('./routes'); put this to use this file in app.js
+
 const fs = require('fs');//contain all inbuild file func and obj
 
 
@@ -38,4 +41,14 @@ const requestHandler = (req, res) => {
     res.end();
 }
 
-module.exports = requestHandler;       
+module.exports = requestHandler;    // we can also remove module its also supported
+
+//  module.exports = {
+//    handler: requestHandler
+//    someText: "Hey there"
+//    }
+//
+// exports.handler = requestHandler
+// dif types we can use for export
+
+*/
