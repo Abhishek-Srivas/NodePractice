@@ -17,9 +17,7 @@ exports.postAddProduct = (req, res, next) => {
     title,
     price,
     description,
-    imageUrl,
-    null,
-    req.user._id
+    imageUrl
   );
   product
     .save()
